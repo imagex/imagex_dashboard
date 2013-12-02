@@ -1,0 +1,11 @@
+name = ImageX Dashboard Permissions
+description = ImageX Dashboard permissions
+core = 7.x
+package = ImageX
+version = 7.x-1.0
+project = imagex_dashboard_permissions
+dependencies[] = features
+dependencies[] = imagex_dashboard
+features[features_api][] = api:2
+features[user_permission][] = view content admin dashboard
+project path = profiles/imagex_installkit/modules/imagex/modules/imagex_dashboard/modules

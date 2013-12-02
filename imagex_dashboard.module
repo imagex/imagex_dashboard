@@ -1,0 +1,46 @@
+<?php
+/**
+ * @file
+ * Code for the ImageX Dashboard feature.
+ */
+
+include_once 'imagex_dashboard.features.inc';
+
+/**
+ * Implements hook_permission().
+ */
+function imagex_dashboard_permission() {
+  return array(
+    'view content admin dashboard' => array(
+      'title' => t('View Content Admin Dashboard'),
+      'description' => t('Allows user view access to the content admin dashboard page.'),
+    ),  
+  );
+}
+
+/**
+ * Implements hook_menu_alter().
+ */
+function imagex_dashboard_menu_alter(&$items) {
+  // Unset "My Workbench"
+  if (!empty($items['admin/workbench'])) {
+    //unset($items['admin/workbench']);
+  }
+  
+  // Alter default content admin tab
+  if (!empty($items['admin/content'])) {
+    $items['admin/content/node']['title'] = 'All Content';
+  }
+}
+
+/**
+ * Implements hook_default_alter().
+ *
+ * This is a features hook lacking in good docs.
+ */
+function imagex_dashboard_default_page_manager_pages_alter(&$defaults) {
+  // Since panels are not added to the dashboard by this module we don't want to store them in this feature
+  if (!empty($defaults['imagex_dashboard']->default_handlers['page_imagex_dashboard_panel_context']->conf['display']->panels)) {
+    $defaults['imagex_dashboard']->default_handlers['page_imagex_dashboard_panel_context']->conf['display']->panels = array();
+  }
+}

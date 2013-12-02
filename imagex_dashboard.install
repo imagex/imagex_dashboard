@@ -1,0 +1,27 @@
+<?php
+/**
+ * @file
+ */
+
+/**
+ * Implements hook_uninstall().
+ */
+function imagex_dashboard_uninstall() {
+  // Empty to help features revert
+}
+
+/**
+ * Implements hook_requirements().
+ */
+function imagex_dashboard_requirements($phase) {
+  $requirements = array();
+  $t = get_t();
+  
+  // @todo - allow install but flag if no dashboard panels
+  if ($phase == 'runtime') {
+    
+  }  
+  
+  // Must return blank array or installation profiles fail
+  return $requirements;
+}
