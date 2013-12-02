@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the ImageX Dashboard Defaults feature.
+ */
+
+include_once 'imagex_dashboard_defaults.features.inc';
